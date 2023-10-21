@@ -7,6 +7,7 @@ mirakurunPath: http://mirakurun:40772/
 #     - '/hoge/regexp.dylib'
 #   regexp: true
 
+uid: 1000
 dbtype: mysql
 mysql:
     host: mysql
@@ -40,23 +41,38 @@ concurrentEncodeNum: 1
 encode:
     - name: H.264-SL
       cmd: '%NODE% %ROOT%/config/sl-enc.js'
-      suffix: .mp4
+      suffix: H.264-sl.mp4
       rate: 4.0
 
-    - name: M2
+    - name: M2-cfp22デュアルモノ
       cmd: '/bin/bash %ROOT%/config/sl-enc-ml.sh 22 veryfast M2'
-      suffix: -M2.mp4
+      suffix: H.264-M2.mp4
       rate: 4.0
       
-    - name: L1-24
+    - name: L1-cfp24
       cmd: '/bin/bash %ROOT%/config/sl-enc-ml.sh 24 veryfast L1'
-      suffix: -L1.mp4
+      suffix: H.264-L1.mp4
+      rate: 4.0
+ 
+    - name: L2-cfp22二か国語
+      cmd: '/bin/bash %ROOT%/config/sl-enc-ml.sh 22 veryfast L2'
+      suffix: H.264-L2.mp4
+      rate: 4.0
+
+    - name: H.265-M2
+      cmd: '/bin/bash %ROOT%/config/sl-enc-x265 22 veryfast M2'
+      suffix: H.265-m2.mp4
+      rate: 4.0
+
+    - name: H.265-L1-24
+      cmd: '/bin/bash %ROOT%/config/sl-enc-x265 24 veryfast L1'
+      suffix: H.265-L1.mp4
       rate: 4.0
       
-    - name: L2
-      cmd: '/bin/bash %ROOT%/config/sl-enc-ml.sh 22 veryfast L2'
-      suffix: -L2.mp4
-      rate: 4.0                 
+    - name: H.265-L2
+      cmd: '/bin/bash %ROOT%/config/sl-enc-x265 22 veryfast L2'
+      suffix: H.265-L2.mp4
+      rate: 4.0
 
 urlscheme:
     m2ts:
@@ -64,7 +80,8 @@ urlscheme:
         android: intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=PROTOCOL;end
     video:
         ios: infuse://x-callback-url/play?url=PROTOCOL://ADDRESS
-        android: intent://ADDRESS#Intent;package=com.mxtech.videoplayer.pro;type=video;scheme=PROTOCOL;end
+        android: intent://ADDRESS#Intent;package=com.mxtech.videoplayer.ad;type=video;scheme=PROTOCOL;end
+#        android: intent://ADDRESS#Intent;type=video;scheme=PROTOCOL;end
     download:
         ios: vlc-x-callback://x-callback-url/download?url=PROTOCOL://ADDRESS&filename=FILENAME
 
