@@ -1,7 +1,7 @@
 #!/bin/bash
 timedatectl
 sudo apt update
-mkdir ~/git
+mkdir ~/docker
 sudo apt install -y dkms git
 sudo apt -y install docker.io 
 docker --version
