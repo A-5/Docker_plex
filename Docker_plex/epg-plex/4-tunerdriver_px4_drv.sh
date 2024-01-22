@@ -1,6 +1,6 @@
 #!/bin/bash
-cd ~/git
-git clone https://github.com/nns779/px4_drv
+cd ~/docker
+git clone https://github.com/tsukumijima/px4_drv.git
 cd px4_drv/fwtool/
 make
 wget http://plex-net.co.jp/plex/pxw3u4/pxw3u4_BDA_ver1x64.zip -O pxw3u4_BDA_ver1x64.zip

@@ -1,4 +1,5 @@
 #!/bin/bash
+PrevPath=$(pwd)
 cd ~/docker
 git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 cd docker-mirakurun-epgstation
@@ -10,6 +11,7 @@ cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdater
 cp epgstation/config/serviceLogConfig.sample.yml epgstation/config/serviceLogConfig.yml
 git clone https://github.com/Chinachu/Mirakurun
 cd ~/2023temp/epg-plex
+cd $PrevPath
 cp ./data/new-MirakurunDockerfile ~/git/docker-mirakurun-epgstation/Mirakurun/docker/Dockerfile
 cp ./data/tuners-mlt8.yml ~/git/docker-mirakurun-epgstation/Mirakurun/config/tuners.yml
 cp ./data/channels.yml ~/git/docker-mirakurun-epgstation/Mirakurun/config/channels.yml
